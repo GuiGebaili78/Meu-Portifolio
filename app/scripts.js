@@ -28,4 +28,18 @@ document.addEventListener('DOMContentLoaded', function() {
     light.style.top = `${e.clientY}px`;
   });
 
+  // Smooth scrolling for browsers that do not support CSS scroll-behavior
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
