@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Adiciona a classe 'show' com um atraso de 1 segundo
+        // Adiciona a classe 'show' com um atraso
         setTimeout(() => {
           entry.target.classList.add('show');
-        }, 800); // 1000 milissegundos = 1 segundo
+        }, 800); 
       }
     });
   }, {
-    threshold: 0.5 // Define o threshold para 50% de visibilidade
+    threshold: 0.5 
   });
 
   // Adiciona o observer a cada banner
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(banner);
   });
 
-  // Event listener para o efeito do mouse (não modificado)
+  // Event listener para o efeito do mouse
   document.addEventListener('mousemove', function(e) {
     const light = document.getElementById('light');
     light.style.left = `${e.clientX}px`;
